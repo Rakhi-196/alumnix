@@ -1,170 +1,319 @@
-# Alumni Management System
+# 🎓 Alumni Management System
 
-A full-featured alumni management platform built with React, TypeScript, and Supabase.
+A modern full-stack Alumni Management Platform built with **React, TypeScript, Vite, and Supabase** that enables alumni, students, and administrators to connect through networking, mentorship, events, job opportunities, and real-time communication.
 
-## Features
+---
 
-- **Authentication** - Email/password sign-up and sign-in with role-based access (Admin, Alumni, Student)
-- **Alumni Directory** - Searchable directory with filters by department, graduation year, and skills
-- **Events Management** - Create, browse, and register for events (virtual and in-person)
-- **Job Portal** - Post and apply for jobs with application tracking
-- **News Feed** - Announcements, achievements, and community updates
-- **Mentorship Program** - Connect mentors with mentees
-- **Real-time Chat** - Direct and group messaging
-- **Notifications** - Activity alerts and updates
-- **Profile Management** - Personal info, skills, resume, and social links
-- **Admin Panel** - User management, content moderation, and analytics
+## 🌐 Live Demo
 
-## Tech Stack
+**Live Website:**  
+https://alumnix.vercel.app
 
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Auth, Realtime)
-- **UI Components**: Custom component library with Framer Motion animations
-- **Forms**: React Hook Form with Zod validation
+## 📂 GitHub Repository
 
-## Getting Started
+**GitHub:**  
+https://github.com/Rakhi-196/alumnix
 
-### Prerequisites
+---
 
-- Node.js 18+ installed
-- A Supabase account (already configured)
+# ✨ Features
 
-### Installation
+- ✅ Secure Authentication (Email & Password)
+- ✅ Role-Based Access (Admin, Alumni, Student)
+- ✅ Alumni Directory with Search & Filters
+- ✅ Events Creation & Registration
+- ✅ Job Portal with Applications
+- ✅ Mentorship Program
+- ✅ Real-time Chat
+- ✅ News Feed & Announcements
+- ✅ Notifications System
+- ✅ Profile Management
+- ✅ Admin Dashboard
+- ✅ Responsive Design
+- ✅ Dark/Light Theme
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Frontend | React 18 |
+| Language | TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS |
+| Backend | Supabase |
+| Database | PostgreSQL |
+| Authentication | Supabase Auth |
+| Realtime | Supabase Realtime |
+| Form Handling | React Hook Form |
+| Validation | Zod |
+| Animation | Framer Motion |
+| Deployment | Vercel |
+
+---
+
+# 🏗 System Architecture
+
+```text
+                React + TypeScript
+                        │
+                        ▼
+                  Supabase Auth
+                        │
+                        ▼
+                PostgreSQL Database
+                        │
+        ┌───────────────┼───────────────┐
+        ▼               ▼               ▼
+     Events          Jobs          Mentorship
+        │               │               │
+        └───────────────┼───────────────┘
+                        ▼
+               Realtime Notifications
+                        │
+                        ▼
+                  Chat & Messaging
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+src/
+├── components/
+│   ├── ui/
+│   └── layout/
+│
+├── context/
+│   ├── AuthContext
+│   └── ThemeContext
+│
+├── lib/
+│   └── supabase.ts
+│
+├── pages/
+│   ├── admin/
+│   ├── alumni/
+│   ├── auth/
+│   ├── chat/
+│   ├── dashboard/
+│   ├── events/
+│   ├── jobs/
+│   ├── mentorship/
+│   ├── news/
+│   ├── notifications/
+│   └── profile/
+│
+├── types/
+├── utils/
+│
+├── App.tsx
+└── main.tsx
+```
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+- Supabase Account
+
+---
+
+## Installation
+
+Clone the repository
 
 ```bash
-# Install dependencies
+git clone https://github.com/Rakhi-196/alumnix.git
+```
+
+Move into the project
+
+```bash
+cd alumnix
+```
+
+Install dependencies
+
+```bash
 npm install
+```
 
-# Start development server
+Run the development server
+
+```bash
 npm run dev
+```
 
-# Build for production
+Build for production
+
+```bash
 npm run build
 ```
 
-### Environment Variables
+---
 
-The `.env` file contains pre-configured Supabase credentials:
-- `VITE_SUPABASE_URL` - Your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY` - Public anonymous key
+# 🔐 Environment Variables
 
-## User Roles
+Create a `.env` file in the project root.
 
-1. **Admin**
-   - Full access to admin panel
-   - Can verify users
-   - Can manage events, jobs, and news
-   - View analytics dashboard
-
-2. **Alumni**
-   - Post jobs
-   - Create events
-   - Become a mentor
-   - Full profile access
-
-3. **Student**
-   - Browse alumni directory
-   - Apply for jobs
-   - Register for events
-   - Request mentorship
-
-## Demo Accounts
-
-After running the seed script, you can log in with:
-
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@alumni.edu | admin123 |
-| Alumni | john.smith@company.com | alumni123 |
-| Student | student@university.edu | student123 |
-
-## Database Schema
-
-The system uses 12 interconnected tables:
-
-- `profiles` - User profiles extending auth.users
-- `events` - Alumni events and gatherings
-- `event_registrations` - Event attendance tracking
-- `jobs` - Job postings
-- `job_applications` - Job applications
-- `news_posts` - News and announcements
-- `news_comments` - Comments on posts
-- `mentorships` - Mentor-mentee relationships
-- `chat_rooms` - Group and direct message rooms
-- `chat_room_members` - Room membership
-- `messages` - Chat messages
-- `notifications` - User notifications
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── ui/           # Reusable UI components
-│   └── layout/       # Layout components (Sidebar, Header)
-├── context/
-│   ├── AuthContext   # Authentication state
-│   └── ThemeContext  # Theme (dark/light mode)
-├── lib/
-│   └── supabase.ts   # Supabase client
-├── pages/
-│   ├── admin/        # Admin panel
-│   ├── alumni/       # Alumni directory
-│   ├── auth/         # Login/Register
-│   ├── chat/         # Messaging
-│   ├── dashboard/    # Main dashboard
-│   ├── events/       # Events management
-│   ├── jobs/         # Job portal
-│   ├── mentorship/   # Mentorship program
-│   ├── news/         # News feed
-│   ├── notifications/# Notifications
-│   └── profile/      # Profile management
-├── types/            # TypeScript types
-└── utils/            # Utility functions
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 ```
 
-## API Reference
+---
 
-### Authentication
+# 👥 User Roles
+
+## 👑 Admin
+
+- Manage Users
+- Verify Alumni
+- Manage Events
+- Manage Jobs
+- Publish News
+- View Analytics Dashboard
+
+## 🎓 Alumni
+
+- Update Profile
+- Post Jobs
+- Create Events
+- Become Mentor
+- Chat with Students
+- Share News
+
+## 👨‍🎓 Student
+
+- Search Alumni
+- Apply for Jobs
+- Register for Events
+- Request Mentorship
+- Chat with Alumni
+
+---
+
+# 📚 Database Schema
+
+The project uses **12 relational tables**.
+
+| Table | Description |
+|--------|-------------|
+| profiles | User information |
+| events | Alumni events |
+| event_registrations | Event registrations |
+| jobs | Job postings |
+| job_applications | Job applications |
+| news_posts | Community news |
+| news_comments | Comments |
+| mentorships | Mentor-Mentee mapping |
+| chat_rooms | Chat rooms |
+| chat_room_members | Members |
+| messages | Chat messages |
+| notifications | User notifications |
+
+---
+
+# 🔄 Project Workflow
+
+```text
+User
+ │
+ ▼
+Login / Register
+ │
+ ▼
+Dashboard
+ │
+ ├──────────────┬──────────────┬──────────────┐
+ ▼              ▼              ▼              ▼
+Events        Jobs        Mentorship      Profile
+ │              │              │              │
+ └──────────────┴──────────────┴──────────────┘
+                │
+                ▼
+        Notifications & Chat
+```
+
+---
+
+# 🔗 API Reference
+
+## Authentication
 
 ```typescript
-// Sign up
 signUp(email, password, fullName, role)
 
-// Sign in
 signIn(email, password)
 
-// Sign out
 signOut()
 ```
 
-### Common Queries
+## Common Queries
 
 ```typescript
-// Get alumni profiles
-supabase.from('profiles').select('*').eq('role', 'alumni')
+// Get Alumni
+supabase.from("profiles").select("*").eq("role", "alumni")
 
-// Get upcoming events
-supabase.from('events').select('*').eq('status', 'upcoming')
+// Get Upcoming Events
+supabase.from("events").select("*").eq("status", "upcoming")
 
-// Get active jobs
-supabase.from('jobs').select('*').eq('status', 'active')
+// Get Active Jobs
+supabase.from("jobs").select("*").eq("status", "active")
 ```
 
-## Features In Detail
+---
 
-### Dark Mode
+# 🚀 Deployment
 
-Toggle dark mode by clicking the sun/moon icon in the header. The preference is saved to localStorage.
+| Service | Platform |
+|----------|----------|
+| Frontend | Vercel |
+| Backend | Supabase |
+| Database | PostgreSQL |
 
-### Responsive Design
+**Live URL:**  
+https://alumnix.vercel.app
 
-The UI is fully responsive and works on mobile, tablet, and desktop devices.
+---
 
-### Real-time Chat
+# 🌟 Future Enhancements
 
-Messages are delivered in real-time using Supabase Realtime subscriptions.
+- Google Authentication
+- Email Verification
+- Resume Upload
+- AI Career Recommendation
+- Event QR Code Check-In
+- Video Meeting Integration
+- Push Notifications
+- Mobile Application
+- Alumni Donation Portal
+- Advanced Analytics Dashboard
 
-## License
+---
 
-MIT
+# 👩‍💻 Author
+
+**Rakhi Chauhan**
+
+GitHub:  
+https://github.com/Rakhi-196
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, please consider giving it a **Star ⭐** on GitHub.
